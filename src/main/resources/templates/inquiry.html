@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+<meta charset="UTF-8">
+<title>問い合わせ詳細</title>
+</head>
+<body>
+<div th:object="${inquirykai}">
+    <p>
+        名前：<span th:text="*{name}"></span>
+    </p>
+    <p>
+        メールアドレス：<span th:text="*{mail}"></span>
+    </p>
+    <p>
+        年齢：<span th:text="*{age}"></span>
+    </p>
+    <p>
+        性別：<span th:text="*{gender}"></span>
+    </p>
+    <p>
+        問い合わせ内容：<br>
+        <th:block th:each="line : *{contents.split('\n')}">
+            <th:block th:text="${line}"></th:block><br>
+        </th:block>
+    </p>
+</div>
+</body>
+</html>
